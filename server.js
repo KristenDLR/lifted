@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+//sync force true to make the tables recreate if association changes| false to stop
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening on Port: ' + PORT));
 });
